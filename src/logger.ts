@@ -35,6 +35,7 @@ export function initLogWriteFile() {
       const log = logBuffer[index];
       fs.appendFileSync(todayLogFilepath, log);
     }
+    logBuffer.splice(0, logBuffer.length);
 
   }, config.saveToFileInterval);
 
