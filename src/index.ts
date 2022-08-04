@@ -1,6 +1,7 @@
 import 'module-alias/register';
 import express from 'express';
 import { greeterRouter } from '@controllers/';
+import { initLogWriteFile } from './logger';
 
 const app = express();
 const port = process.env.PORT || 3000; // default port to listen
@@ -14,4 +15,6 @@ app.listen(port, () => {
 app.get('/', (_req, res) => {
     res.send("Server is up!<br/>Try: /api/greeter?name=Tester");
 });
-    
+
+
+initLogWriteFile();
